@@ -66,28 +66,47 @@ const config: Config = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+        xl: 'var(--radius-lg)',
+        '2xl': '1.25rem',
+        full: '9999px',
+      },
+      boxShadow: {
+        'layered': '0 1px 2px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.06), 0 8px 24px rgba(0,0,0,0.04)',
+        'layered-hover': '0 8px 24px rgba(0,0,0,0.08), 0 16px 48px rgba(0,0,0,0.06)',
+        'glow-orange': '0 4px 14px rgba(234,88,12,0.25), 0 0 0 1px rgba(234,88,12,0.08)',
+        'glow-orange-lg': '0 8px 28px rgba(234,88,12,0.35), 0 0 0 1px rgba(234,88,12,0.1)',
       },
       keyframes: {
         'accordion-down': {
-          from: {
-            height: '0',
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)',
-          },
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
         'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-          to: {
-            height: '0',
-          },
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+        'fade-in-up': {
+          from: { opacity: '0', transform: 'translateY(20px)' },
+          to: { opacity: '1', transform: 'translateY(0)' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0) translateX(0)' },
+          '50%': { transform: 'translateY(-12px) translateX(4px)' },
+        },
+        'float-slow': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' },
         },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'fade-in-up': 'fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards',
+        'float': 'float 5s ease-in-out infinite',
+        'float-slow': 'float-slow 6s ease-in-out infinite',
+      },
+      backgroundImage: {
+        'gradient-orange': 'linear-gradient(135deg, var(--gradient-orange-start) 0%, var(--gradient-orange-end) 100%)',
       },
     },
   },

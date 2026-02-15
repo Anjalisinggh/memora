@@ -3,14 +3,15 @@ import { Geist, Geist_Mono } from 'next/font/google'
 
 import './globals.css'
 import SplashCursor from '@/components/SplashCursor'
+import { ThemeProvider } from '@/components/theme-provider'
 
 const _geist = Geist({ subsets: ['latin'] })
 const _geistMono = Geist_Mono({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Reel Route - AI-Powered Travel Planner',
+  title: 'Memora - AI-Powered Travel Planner and Memory Capture',
   description: 'Plan unforgettable trips with AI-generated itineraries and memory capture',
-  generator: 'v0.app',
+  generator: 'Memora',
 }
 
 export default function RootLayout({
@@ -19,8 +20,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <SplashCursor
           SIM_RESOLUTION={128}
           DYE_RESOLUTION={1440}
@@ -33,6 +35,7 @@ export default function RootLayout({
           COLOR_UPDATE_SPEED={10}
         />
         {children}
+        </ThemeProvider>
       </body>
     </html>
   )
